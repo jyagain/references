@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대전 연구특구 기반 공공기관 이전 근거자료집 (Evidence Book)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter and Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #f1f5f9; /* Slate 100 */
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
+        }
+        /* Glassmorphism style */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        /* Tab transition */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Top Navigation Header -->
+    <header class="glass-panel sticky top-0 z-50 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-gradient-to-tr from-indigo-500 to-purple-500 text-white p-2.5 rounded-xl shadow-lg">
+                        <i class="fa-solid fa-book-bookmark text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg md:text-xl font-bold tracking-tight bg-gradient-to-r from-indigo-200 via-slate-100 to-purple-200 bg-clip-text text-transparent">
+                            대전 연구특구 기반 공공기관 이전 근거자료집
+                        </h1>
+                        <p class="text-xs text-indigo-400 font-medium tracking-wide">Evidence Book for Policy Planning & Industrial Strategy</p>
+                    </div>
+                </div>
+                <div class="hidden lg:flex items-center space-x-2 text-xs text-slate-400">
+                    <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700">국토균형발전/산업정책</span>
+                    <span class="bg-indigo-950/50 text-indigo-400 px-2.5 py-1 rounded-md border border-indigo-900/50 font-semibold">제2차 공공기관 이전 대응</span>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Tabs -->
+        <nav class="bg-slate-900/90 border-t border-slate-800/80 overflow-x-auto">
+            <div class="max-w-7xl mx-auto px-4 flex space-x-1 py-2 min-w-max">
+                <button onclick="switchTab('tab-overview', this)" id="btn-tab-overview" class="tab-btn px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 flex items-center space-x-2 text-slate-300 hover:bg-slate-800 hover:text-white bg-indigo-600 text-white shadow-md">
+                    <i class="fa-solid fa-landmark"></i>
+                    <span>[개요/정부정책]</span>
+                </button>
+                <button onclick="switchTab('tab-daejeon', this)" id="btn-tab-daejeon" class="tab-btn px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 flex items-center space-x-2 text-slate-400 hover:bg-slate-800 hover:text-white">
+                    <i class="fa-solid fa-atom"></i>
+                    <span>[대전 연구특구 현황]</span>
+                </button>
+                <button onclick="switchTab('tab-commercialization', this)" id="btn-tab-commercialization" class="tab-btn px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 flex items-center space-x-2 text-slate-400 hover:bg-slate-800 hover:text-white">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>[기술사업화]</span>
+                </button>
+                <button onclick="switchTab('tab-benchmarking', this)" id="btn-tab-benchmarking" class="tab-btn px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 flex items-center space-x-2 text-slate-400 hover:bg-slate-800 hover:text-white">
+                    <i class="fa-solid fa-code-compare"></i>
+                    <span>[벤치마킹 비교]</span>
+                </button>
+                <button onclick="switchTab('tab-proposals', this)" id="btn-tab-proposals" class="tab-btn px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 flex items-center space-x-2 text-slate-400 hover:bg-slate-800 hover:text-white">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>[정책제언]</span>
+                </button>
+                <button onclick="switchTab('tab-references', this)" id="btn-tab-references" class="tab-btn px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 flex items-center space-x-2 text-slate-400 hover:bg-slate-800 hover:text-white">
+                    <i class="fa-solid fa-database"></i>
+                    <span>[참고문헌/자료관리대장]</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Tab 1: 개요/정부정책 -->
+        <section id="tab-overview" class="tab-content active space-y-8">
+            <div class="glass-panel p-6 md:p-8 rounded-2xl shadow-xl space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-800 pb-4">
+                    <span class="text-indigo-500 text-2xl"><i class="fa-solid fa-circle-info"></i></span>
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-100">연구 배경 및 정부 정책 방향 (Chapter 1~2)</h2>
+                </div>
+                <!-- 근거 참고문헌 배지 -->
+                <div class="flex flex-wrap gap-2 text-[11px] bg-slate-900/60 p-3 rounded-lg border border-slate-800/80">
+                    <span class="text-slate-400 font-semibold flex items-center mr-2"><i class="fa-solid fa-bookmark text-indigo-400 mr-1.5"></i> 관련 참고문헌:</span>
+                    <button onclick="goToReference(1)" class="bg-indigo-950/40 text-indigo-300 hover:text-white px-2 py-1 rounded border border-indigo-900/30 transition flex items-center space-x-1">
+                        <i class="fa-solid fa-file-lines text-[10px]"></i>
+                        <span>[참고 1] 지방이전 공공기관 사후관리 방안 마련 연구 (국토연구원)</span>
+                    </button>
+                    <button onclick="goToReference(2)" class="bg-indigo-950/40 text-indigo-300 hover:text-white px-2 py-1 rounded border border-indigo-900/30 transition flex items-center space-x-1">
+                        <i class="fa-solid fa-file-lines text-[10px]"></i>
+                        <span>[참고 2] 제1차 공공기관 지방이전 사업 성과와 시사점 (예정처)</span>
+                    </button>
+                    <button onclick="goToReference(3)" class="bg-indigo-950/40 text-indigo-300 hover:text-white px-2 py-1 rounded border border-indigo-900/30 transition flex items-center space-x-1">
+                        <i class="fa-solid fa-file-lines text-[10px]"></i>
+                        <span>[참고 3] 제1차 지방시대 종합계획 (지방시대위)</span>
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left column: Core Logic -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="bg-indigo-950/30 border border-indigo-900/50 p-6 rounded-xl space-y-3">
+                            <h3 class="text-indigo-400 font-semibold text-sm uppercase tracking-wider">핵심 연구 논리</h3>
+                            <p class="text-lg md:text-xl font-bold leading-relaxed text-slate-200">
+                                "제2차 공공기관 이전은 단순한 행정 기능의 물리적 균형 배분이 아니라, 지역별 고유 산업 생태계 고도화 및 기술 혁신 역량과 연계된 기능 중심(Function-centered) 이전으로 추진되어야 한다."
+                            </p>
+                        </div>
+                        <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                            <p>
+                                대한민국 국토연구원과 대통령직속 지방시대위원회(2025~2026)의 가이드라인에 따르면, 현 정부 균형발전의 축인 <strong>'5극 3특' 초광역 메가시티 전략</strong> 하에서 2차 공공기관 이전은 각 지자체가 강점을 가진 핵심 주력 산업과의 융합을 지향하고 있습니다. 대전광역시의 경우, 대덕연구개발특구의 방대한 원천 R&D 인프라와 민선 8기 5대 전략산업(ABCD-QR: 우주항공, 바이오, 반도체, 국방, 양자, 로봇)에 기반하여 과학기술 역량을 상용화하고 실증하는 기능성 공공기관을 전략적으로 유치해야 합니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Right column: Key Statistics Panel -->
+                    <div class="bg-slate-800/40 border border-slate-700/50 p-6 rounded-xl space-y-4">
+                        <h4 class="text-slate-200 font-semibold text-sm">정부 정책 및 예산 지표</h4>
+                        <ul class="space-y-3 text-xs text-slate-300">
+                            <li class="flex justify-between py-2 border-b border-slate-800">
+                                <span>국가 전략 R&D 대전 집중도</span>
+                                <span class="font-semibold text-indigo-400">56.0% (KISTEP)</span>
+                            </li>
+                            <li class="flex justify-between py-2 border-b border-slate-800">
+                                <span>2차 이전 대상 공공기관 규모</span>
+                                <span class="font-semibold text-indigo-400">약 360여 개 검토</span>
+                            </li>
+                            <li class="flex justify-between py-2 border-b border-slate-800">
+                                <span>초광역 협력 R&D 예산 비중</span>
+                                <span class="font-semibold text-indigo-400">35.0% 증가 (지방시대위)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <!-- Card 1: 1차 이전 성과 및 한계 -->
+                    <div class="bg-slate-800/30 border border-slate-800 p-6 rounded-xl space-y-4">
+                        <h3 class="text-lg font-semibold text-slate-100 flex items-center space-x-2">
+                            <i class="fa-solid fa-triangle-exclamation text-amber-500 text-sm"></i>
+                            <span>1차 공공기관 이전의 한계와 평가</span>
+                        </h3>
+                        <p class="text-xs text-slate-400">국회예산정책처(2024.04) 실증 데이터 기반</p>
+                        <div class="text-sm text-slate-300 space-y-3">
+                            <p>
+                                1차 이전의 가장 큰 문제점은 <strong>단순한 행정/물리적 이전에 따른 정주율 미흡</strong>과 <strong>지역 산업 시너지 부재</strong>였습니다. 이전 기관 종사자의 주말 가족 동반 정주율은 48.2%에 머물렀으며, 다수의 기관이 정주성 강화보다는 수도권 통근 셔틀버스를 지속적으로 운영해 왔습니다.
+                            </p>
+                            <p class="text-xs text-amber-400/90 bg-amber-950/20 border border-amber-900/30 p-3 rounded-lg">
+                                <strong>[실패 사례] 경남 진주 혁신도시:</strong> 한국세라믹기술원 등 전문 연구기관과 초대형 공공기관인 LH(한국토지주택공사)가 동시 이전했으나, 두 기관 간의 산업적 협업이나 세라믹 산업 활성화에 기여한 파급효과는 사실상 전무했습니다. 이는 산업적 연계성이 결여된 '나열식 이전'의 한계를 증명합니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2: 5극 3특 초광역 발전축 -->
+                    <div class="bg-slate-800/30 border border-slate-800 p-6 rounded-xl space-y-4">
+                        <h3 class="text-lg font-semibold text-slate-100 flex items-center space-x-2">
+                            <i class="fa-solid fa-map-location-dot text-indigo-500 text-sm"></i>
+                            <span>5극 3특 체제와 공공기관 연계</span>
+                        </h3>
+                        <p class="text-xs text-slate-400">국토연구원(2026.02) 수요조사 지침 기반</p>
+                        <div class="text-sm text-slate-300 space-y-3">
+                            <p>
+                                현행 지방시대 정책의 골자인 <strong>'5극 3특' 초광역 메가시티 발전축</strong>에서는 대전-충남-충북-세종을 잇는 <strong>'중부권 메가시티'</strong>를 구성하고 있습니다. 이 체제 아래서 공공기관은 특정 행정 구역에 독점적으로 머무는 것이 아니라 인접 충청권 지자체와 공동으로 R&D, 실증, 보급의 Value Chain을 형성해야 합니다.
+                            </p>
+                            <p>
+                                지자체 경쟁 과열을 해소하기 위해 국토교통부는 지자체별 최대 40개 희망 기관을 기입한 <strong>조사표(두 페이지 이내 분량 제한)</strong>를 수집했으며, 이를 토대로 지역 주력 산업과의 정합성 및 기능적 연계성(Function-centered matching)을 계량 평가하여 최종 이전 계획에 반영할 계획입니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: 대전 연구특구 현황 -->
+        <section id="tab-daejeon" class="tab-content space-y-8">
+            <div class="glass-panel p-6 md:p-8 rounded-2xl shadow-xl space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-800 pb-4">
+                    <span class="text-indigo-500 text-2xl"><i class="fa-solid fa-atom"></i></span>
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-100">대전 연구특구 산업환경 및 경제 구조 (Chapter 3)</h2>
+                </div>
+                <!-- 근거 참고문헌 배지 -->
+                <div class="flex flex-wrap gap-2 text-[11px] bg-slate-900/60 p-3 rounded-lg border border-slate-800/80">
+                    <span class="text-slate-400 font-semibold flex items-center mr-2"><i class="fa-solid fa-bookmark text-indigo-400 mr-1.5"></i> 관련 참고문헌:</span>
+                    <button onclick="goToReference(5)" class="bg-indigo-950/40 text-indigo-300 hover:text-white px-2 py-1 rounded border border-indigo-900/30 transition flex items-center space-x-1">
+                        <i class="fa-solid fa-file-lines text-[10px]"></i>
+                        <span>[참고 5] 대전시 공공기관 유치 논리 및 대응 방안 연구 (대전연)</span>
+                    </button>
+                    <button onclick="goToReference(8)" class="bg-indigo-950/40 text-indigo-300 hover:text-white px-2 py-1 rounded border border-indigo-900/30 transition flex items-center space-x-1">
+                        <i class="fa-solid fa-file-lines text-[10px]"></i>
+                        <span>[참고 8] 2023년 지역소득 결과 보고서 (통계청)</span>
+                    </button>
+                </div>
+                
+                <!-- Daejeon Economics and Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-slate-800/40 border border-slate-800 p-5 rounded-xl text-center space-y-2">
+                        <span class="text-xs text-slate-400 font-semibold block uppercase">경제 규모 (GRDP) 순위</span>
+                        <span class="text-3xl font-extrabold text-indigo-400 block">전국 14위</span>
+                        <p class="text-xs text-slate-300">세종특별자치시 출범 이후 17개 시도 중 최하위 수준 유지 (통계청)</p>
+                    </div>
+                    <div class="bg-slate-800/40 border border-slate-800 p-5 rounded-xl text-center space-y-2">
+                        <span class="text-xs text-slate-400 font-semibold block uppercase">개인 소득 수준</span>
+                        <span class="text-3xl font-extrabold text-indigo-400 block">전국 4위</span>
+                        <p class="text-xs text-slate-300">높은 소득을 올리는 연구직 인재 비율이 높으나 역외 유출 심화 (대전연)</p>
+                    </div>
+                    <div class="bg-slate-800/40 border border-slate-800 p-5 rounded-xl text-center space-y-2">
+                        <span class="text-xs text-slate-400 font-semibold block uppercase">산업별 비중 (서비스업 vs 제조업)</span>
+                        <span class="text-3xl font-extrabold text-indigo-400 block">70.4% vs 10%대</span>
+                        <p class="text-xs text-slate-300">서울 다음으로 서비스업 비중이 높고 대기업/제조업 기반이 매우 취약</p>
+                    </div>
+                </div>
+
+                <!-- ABCD-QR Dynamic Grid -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-slate-200">대전 민선 8기 5대(6대) 미래 전략 산업 : ABCD-QR</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        대전연구원 인터뷰에 따르면 대전의 전략 산업은 과학기술 역량을 비즈니스로 직접 연결하는 6개 축으로 구성되어 있습니다. R&D 중심에서 생산·실증 지원 기능 중심으로 이전 패러다임을 혁신해야 하는 핵심 타깃입니다.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                        <div class="bg-slate-800/30 border border-slate-700/50 p-4 rounded-xl text-center hover:border-indigo-500/50 transition-all duration-200">
+                            <span class="text-indigo-400 font-extrabold text-2xl block">A</span>
+                            <span class="text-xs text-slate-200 font-bold block mt-1">Aerospace (우주항공)</span>
+                            <span class="text-[10px] text-slate-400 block mt-2">항우연(KARI) 인프라 기반 위성·항공 클러스터</span>
+                        </div>
+                        <div class="bg-slate-800/30 border border-slate-700/50 p-4 rounded-xl text-center hover:border-indigo-500/50 transition-all duration-200">
+                            <span class="text-indigo-400 font-extrabold text-2xl block">B</span>
+                            <span class="text-xs text-slate-200 font-bold block mt-1">Bio (바이오)</span>
+                            <span class="text-[10px] text-slate-400 block mt-2">문지캠퍼스 중심 '바이오 마피아' 자생 생태계</span>
+                        </div>
+                        <div class="bg-slate-800/30 border border-slate-700/50 p-4 rounded-xl text-center hover:border-indigo-500/50 transition-all duration-200">
+                            <span class="text-indigo-400 font-extrabold text-2xl block">C</span>
+                            <span class="text-xs text-slate-200 font-bold block mt-1">Chips (반도체)</span>
+                            <span class="text-[10px] text-slate-400 block mt-2">KAIST·ETRI 중심 팹리스 및 패키징 기술 고도화</span>
+                        </div>
+                        <div class="bg-slate-800/30 border border-slate-700/50 p-4 rounded-xl text-center hover:border-indigo-500/50 transition-all duration-200">
+                            <span class="text-indigo-400 font-extrabold text-2xl block">D</span>
+                            <span class="text-xs text-slate-200 font-bold block mt-1">Defense (국방)</span>
+                            <span class="text-[10px] text-slate-400 block mt-2">방사청(DAPA) 이전 및 국방과학연구소(ADD) 연계</span>
+                        </div>
+                        <div class="bg-slate-800/30 border border-slate-700/50 p-4 rounded-xl text-center hover:border-indigo-500/50 transition-all duration-200">
+                            <span class="text-indigo-400 font-extrabold text-2xl block">Q</span>
+                            <span class="text-xs text-slate-200 font-bold block mt-1">Quantum (양자)</span>
+                            <span class="text-[10px] text-slate-400 block mt-2">표준연(KRISS)·화학연 R&D 핵심 인프라 보유</span>
+                        </div>
+                        <div class="bg-slate-800/30 border border-slate-700/50 p-4 rounded-xl text-center hover:border-indigo-500/50 transition-all duration-200">
+                            <span class="text-indigo-400 font-extrabold text-2xl block">R</span>
+                            <span class="text-xs text-slate-200 font-bold block mt-1">Robot (로봇)</span>
+                            <span class="text-[10px] text-slate-400 block mt-2">KAIST 스핀오프(레인보우로보틱스 등) 중심 생태계</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deep Analysis Box -->
+                <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-xl space-y-4">
+                    <h3 class="text-md font-semibold text-slate-200 flex items-center space-x-2">
+                        <i class="fa-solid fa-industry text-indigo-400"></i>
+                        <span>대전의 구조적 한계와 극복 과제</span>
+                    </h3>
+                    <div class="text-sm text-slate-300 leading-relaxed space-y-3">
+                        <p>
+                            대전은 과학기술 역량이 매우 높은 **대덕연구개발특구(출연연 26개, 석·박사급 인력 수만 명)**를 보유하고 있으나, 지자체 차원의 도시계획 규제 및 산업단지 공급 부족(예타 탈락 문제 등)으로 인해 혁신 벤처기업들이 일정 규모 이상 성장 시 입지 확보 한계로 타 지역(수도권 또는 충북 오송 등)으로 이탈하는 양상을 보입니다.
+                        </p>
+                        <p>
+                            따라서 2차 공공기관 유치 전략은 단순 서비스형 기관이 아닌, 기술사업화 지원 및 글로벌 사업 실증 인프라(R&D 성과물의 대전 현지 스케일업)를 촉진할 수 있는 공공금융 및 기술 실증 기관을 패키지로 확보해야 합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: 기술사업화 -->
+        <section id="tab-commercialization" class="tab-content space-y-8">
+            <div class="glass-panel p-6 md:p-8 rounded-2xl shadow-xl space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-800 pb-4">
+                    <span class="text-indigo-500 text-2xl"><i class="fa-solid fa-chart-line"></i></span>
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-100">기술사업화 및 창업 생태계 연계 (Chapter 4)</h2>
+                </div>
+                <!-- 근거 참고문헌 배지 -->
+                <div class="flex flex-wrap gap-2 text-[11px] bg-slate-900/60 p-3 rounded-lg border border-slate-800/80">
+                    <span class="text-slate-400 font-semibold flex items-center mr-2"><i class="fa-solid fa-bookmark text-indigo-400 mr-1.5"></i> 관련 참고문헌:</span>
+                    <button onclick="goToReference(6)" class="bg-indigo-950/40 text-indigo-300 hover:text-white px-2 py-1 rounded border border-indigo-900/30 transition flex items-center space-x-1">
+                        <i class="fa-solid fa-file-lines text-[10px]"></i>
+                        <span>[참고 6] 연구개발특구 통계연보 (특구재단)</span>
+                    </button>
+                    <button onclick="goToReference(7)" class="bg-indigo-950/40 text-indigo-300 hover:text-white px-2 py-1 rounded border border-indigo-900/30 transition flex items-center space-x-1">
+                        <i class="fa-solid fa-file-lines text-[10px]"></i>
+                        <span>[참고 7] 제6차 지방과학기술진흥종합계획 (과기정통부)</span>
+                    </button>
+                    <button onclick="goToReference(9)" class="bg-indigo-950/40 text-indigo-300 hover:text-white px-2 py-1 rounded border border-indigo-900/30 transition flex items-center space-x-1">
+                        <i class="fa-solid fa-file-lines text-[10px]"></i>
+                        <span>[참고 9] 산학연협력기술지주회사 운영현황 조사보고서 (KIAT)</span>
+                    </button>
+                    <button onclick="goToReference(10)" class="bg-indigo-950/40 text-indigo-300 hover:text-white px-2 py-1 rounded border border-indigo-900/30 transition flex items-center space-x-1">
+                        <i class="fa-solid fa-file-lines text-[10px]"></i>
+                        <span>[참고 10] 지역 과학기술혁신역량평가 보고서 (KISTEP)</span>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2 space-y-6">
+                        <h3 class="text-lg font-semibold text-slate-200">연구소기업 육성과 특허 관리의 불일치 극복</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            대덕특구 내의 연구소기업은 누적 1,600여 개를 넘어섰고 연간 약 5,000건 이상의 우수한 공공기술이 민간에 이전되고 있습니다. 그러나 연구원들이 직접 기술이전 및 창업을 수행하는 과정에서 전문 사업화 자금(특화 펀드) 및 글로벌 권리화(IP 특허 소송 및 매칭) 기능의 장벽에 부딪히고 있습니다.
+                        </p>
+                        
+                        <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/30 space-y-3">
+                            <h4 class="text-indigo-400 font-semibold text-sm">출연연 TLO(기술이전전담조직) 규모 비교</h4>
+                            <p class="text-xs text-slate-400">심층 인터뷰 데이터 (DJI & KIET 박사 증언)</p>
+                            <ul class="space-y-2 text-sm text-slate-300">
+                                <li class="flex justify-between">
+                                    <span>한국전자통신연구원 (ETRI) TLO 전문 인력</span>
+                                    <span class="font-semibold text-slate-200">약 100명</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>일반 중소형 출연연(예: 한국해양과학기술원 등) TLO 전문 인력</span>
+                                    <span class="font-semibold text-slate-200">3~5명 내외</span>
+                                </li>
+                            </ul>
+                            <p class="text-xs text-slate-400 pt-2 border-t border-slate-800">
+                                * ETRI를 제외한 대부분의 출연연은 원천기술 이전 및 연구소기업 창업 전담 조직 역량이 매우 취약하여, 이를 통합 보완하고 기술금융을 지원할 공공기관(기보, 신보, 기술지주 연계 등)의 대전 유치가 필수적입니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-indigo-950/20 border border-indigo-900/50 p-6 rounded-xl space-y-4">
+                        <h3 class="text-md font-semibold text-indigo-300">기술사업화 10대 핵심 실적 통계</h3>
+                        <div class="space-y-3 text-xs text-slate-300">
+                            <div class="flex justify-between py-1.5 border-b border-indigo-950">
+                                <span>대덕특구 누적 연구소기업</span>
+                                <span class="font-semibold text-slate-200">1,600개 이상</span>
+                            </div>
+                            <div class="flex justify-between py-1.5 border-b border-indigo-950">
+                                <span>연평균 공공 기술이전 건수</span>
+                                <span class="font-semibold text-slate-200">5,000여 건</span>
+                            </div>
+                            <div class="flex justify-between py-1.5 border-b border-indigo-950">
+                                <span>R&D 기술이전 효율성</span>
+                                <span class="font-semibold text-slate-200">34.2% (INNOPOLIS)</span>
+                            </div>
+                            <div class="flex justify-between py-1.5 border-b border-indigo-950">
+                                <span>양자 기술 특화 지원 R&D 예산</span>
+                                <span class="font-semibold text-slate-200">연간 1,800억 원</span>
+                            </div>
+                            <div class="flex justify-between py-1.5">
+                                <span>연구원 창업 생태계 자금 조달력</span>
+                                <span class="font-semibold text-slate-200">전국 대비 8.5% 불과</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 4: 벤치마킹 비교 -->
+        <section id="tab-benchmarking" class="tab-content space-y-8">
+            <div class="glass-panel p-6 md:p-8 rounded-2xl shadow-xl space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-800 pb-4">
+                    <span class="text-indigo-500 text-2xl"><i class="fa-solid fa-code-compare"></i></span>
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-100">국내 주요 특화 클러스터 벤치마킹 비교 (Chapter 5)</h2>
+                </div>
+                <!-- 근거 참고문헌 배지 -->
+                <div class="flex flex-wrap gap-2 text-[11px] bg-slate-900/60 p-3 rounded-lg border border-slate-800/80">
+                    <span class="text-slate-400 font-semibold flex items-center mr-2"><i class="fa-solid fa-bookmark text-indigo-400 mr-1.5"></i> 관련 참고문헌:</span>
+                    <button onclick="goToReference(4)" class="bg-indigo-950/40 text-indigo-300 hover:text-white px-2 py-1 rounded border border-indigo-900/30 transition flex items-center space-x-1">
+                        <i class="fa-solid fa-file-lines text-[10px]"></i>
+                        <span>[참고 4] 공공기관 지방이전의 파급효과와 거점도시 정책 방향 (산업연)</span>
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-slate-800">
+                    <table class="w-full text-left border-collapse min-w-[700px] text-sm">
+                        <thead>
+                            <tr class="bg-slate-800/80 text-slate-200 font-semibold border-b border-slate-700">
+                                <th class="p-4">클러스터 및 지역</th>
+                                <th class="p-4">특화 산업</th>
+                                <th class="p-4">핵심 매칭 공공기관 (Anchor)</th>
+                                <th class="p-4">주요 성과 및 벤치마킹 요소</th>
+                                <th class="p-4">주요 한계점 및 시사점</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 bg-slate-900/30 text-slate-300">
+                            <tr>
+                                <td class="p-4 font-semibold text-slate-100">충북 오송</td>
+                                <td class="p-4">바이오 헬스케어</td>
+                                <td class="p-4">식품의약품안전처, 질병관리청</td>
+                                <td class="p-4 text-xs">식약처 인허가 연계를 통한 제약·의료기기 기업의 자생적 유입 유도 (바이오 인허가 최단 경로 구축)</td>
+                                <td class="p-4 text-xs text-amber-400/90">수도권과의 출퇴근 셔틀버스 지속 운영으로 고급 R&D 인력의 가족 동반 정주성 정체 현상 발생</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-slate-100">전남 나주</td>
+                                <td class="p-4">에너지 신산업</td>
+                                <td class="p-4">한국전력공사 (KEPCO), 전력거래소</td>
+                                <td class="p-4 text-xs">한전의 강력한 구매력을 기반으로 한 '에너지 밸리' 조성 (400여 개 협력 대·중소기업 입주 유도)</td>
+                                <td class="p-4 text-xs text-amber-400/90">한전 자체 예산에 의존한 일방적 지원으로 금융·IP 서비스 및 해외 판로 개척 앵커 기능이 부재함</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-slate-100">부산 해양</td>
+                                <td class="p-4">해양 신산업 및 물류</td>
+                                <td class="p-4">한국해양과학기술원, 해양수산개발원</td>
+                                <td class="p-4 text-xs">해양 특화 R&D 자원과 물류 기관의 연계. 해양 벤처 창업 인큐베이팅 추진</td>
+                                <td class="p-4 text-xs text-amber-400/90">금융 인프라(KDB 등)와의 물리적 거리로 인해 연구 개발 기술의 대규모 사업 투자 유치 한계 노출</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-slate-100">울산 수소</td>
+                                <td class="p-4">친환경 에너지 및 화학</td>
+                                <td class="p-4">한국에너지공단</td>
+                                <td class="p-4 text-xs">수소 에너지 인프라 실증 및 규제 완화 선도. 현대자동차 수소 밸류체인과 직결</td>
+                                <td class="p-4 text-xs text-amber-400/90">정부 주도 실증 인프라 예산 편중에 치우쳐 연구소기업 및 전문 R&D 스핀오프 창업 비율이 상대적으로 저조</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 5: 정책제언 -->
+        <section id="tab-proposals" class="tab-content space-y-8">
+            <div class="glass-panel p-6 md:p-8 rounded-2xl shadow-xl space-y-6">
+                <div class="flex items-center space-x-3 border-b border-slate-800 pb-4">
+                    <span class="text-indigo-500 text-2xl"><i class="fa-solid fa-lightbulb"></i></span>
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-100">대전 2차 공공기관 이전을 위한 정책 제언 (Chapter 6)</h2>
+                </div>
+
+                <!-- Proposals List -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/30 space-y-3">
+                        <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">제언 1</span>
+                        <h3 class="text-lg font-semibold text-slate-100">R&D 결과물의 실증 전담 공공기관 유치</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            대전의 강점은 우수한 원천 연구 능력이나, 이를 실제 산업 현장에 매칭하는 '실증(Testbed) 센터' 기능이 취약합니다. R&D 결과를 실제 우주항공·바이오·로봇 등 산업에 시범 검증하고 인증하는 공공기관을 패키지로 유치해야 합니다.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/30 space-y-3">
+                        <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">제언 2</span>
+                        <h3 class="text-lg font-semibold text-slate-100">글로벌 지식재산권(IP) 특허 금융 허브 구축</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            연간 5,000건 이상의 기술 이전 성과물이 역외 및 해외로 누출되는 현상을 제어하기 위해 특허청 산하 및 지식재산 관리 전문 공공기관을 대전에 안착시켜 '글로벌 특허 금융 스케일업 앵커'를 조성해야 합니다.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/30 space-y-3">
+                        <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">제언 3</span>
+                        <h3 class="text-lg font-semibold text-slate-100">초광역 '중부권 메가시티' 통합 이전 밸류체인 수립</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            세종의 행정 기능, 충남의 제조업(디스플레이·자동차) 생산 벨트, 충북의 의약품/오송 바이오 생산 단지와의 시너지를 극대화하도록 대전을 중부권 R&D 및 기술 비즈니스 헤드쿼터(HQ)로 규정하는 공공기관 이전 배치가 필수적입니다.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/30 space-y-3">
+                        <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">제언 4</span>
+                        <h3 class="text-lg font-semibold text-slate-100">공공기관 연계 인재채용 고도화 프로그램 가동</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            우송대 철도 학과와 한국철도공사(코레일)의 인재 공급 매칭 사례와 마찬가지로, 대전에 이전하는 첨단 과학기술/국방 중심 공공기관들이 충남대·카이스트 인재를 정기 특채/매칭 채용하도록 하는 의무 정책 비율을 40% 이상으로 확대 제시해야 합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quote Showcase Section -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-slate-200">심층 인터뷰 핵심 인용구 모음 (연구 근거용)</h3>
+                    <p class="text-xs text-slate-400">각 블록을 클릭하거나 복사 버튼을 누르면 클립보드로 복사됩니다.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Quote 1 -->
+                        <div class="bg-slate-900/50 border border-slate-800 p-5 rounded-xl space-y-3 relative group">
+                            <span class="text-indigo-400 font-semibold text-xs"><i class="fa-solid fa-microphone"></i> 산업연구원 김영민 박사</span>
+                            <blockquote id="quote-kiet" class="text-slate-300 text-sm italic leading-relaxed">
+                                "공공기관 이전은 단순히 빈 공간이 있으니 들어가라는 단순 매칭이 되어서는 안 됩니다. 해당 지역에 메가프로젝트나 신규 전략산업 클러스터가 지정되면, 관련 혁신 기업과 기술개발을 직접 지원할 수 있는 공공기관들이 선제적으로 앵커로 들어가 기업 투자를 유인해야 시너지가 납니다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('quote-kiet', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-xs border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                        
+                        <!-- Quote 2 -->
+                        <div class="bg-slate-900/50 border border-slate-800 p-5 rounded-xl space-y-3 relative group">
+                            <span class="text-indigo-400 font-semibold text-xs"><i class="fa-solid fa-microphone"></i> 대전연구원 김민석 박사</span>
+                            <blockquote id="quote-dji" class="text-slate-300 text-sm italic leading-relaxed">
+                                "대전은 개인 소득이 전국 4위에 달할 정도로 석박사 인재들의 연구 생산성이 우수하지만, 대기업 부재와 빈약한 제조업 기반으로 인해 GRDP는 전국 14위에 머무는 대표적 소득 유출 도시입니다. 대덕특구의 원천 기술이 역외로 유출되지 않도록 대전 현지에서 딥테크를 실증하고 금융을 매칭해 줄 공공기관이 절대적으로 필요합니다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('quote-dji', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-xs border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 6: 참고문헌/자료관리대장 -->
+        <section id="tab-references" class="tab-content space-y-8">
+            <div class="glass-panel p-6 md:p-8 rounded-2xl shadow-xl space-y-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-4 gap-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-indigo-500 text-2xl"><i class="fa-solid fa-database"></i></span>
+                        <div>
+                            <h2 class="text-xl md:text-2xl font-bold text-slate-100">공식 참고문헌 및 자료관리대장</h2>
+                            <p class="text-xs text-slate-400">보고서 작성자의 신뢰성을 높이기 위한 최신 공식 자료 (2024~2026)</p>
+                        </div>
+                    </div>
+                    <!-- Search Filter Input -->
+                    <div class="relative w-full md:w-80">
+                        <input type="text" id="search-input" onkeyup="filterTable()" placeholder="자료명, 기관명, 연도 검색..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-sm text-slate-200 focus:outline-none focus:border-indigo-500 transition">
+                        <span class="absolute right-3 top-2.5 text-slate-400"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    </div>
+                </div>
+
+                <!-- Master Reference Cards Layout with 10-Elements -->
+                <div id="reference-list" class="space-y-6">
+                    
+                    <!-- Reference 1 -->
+                    <div class="ref-card bg-slate-800/30 border border-slate-800 hover:border-indigo-500/30 p-6 rounded-xl space-y-4 transition" data-search="지방이전 공공기관 사후관리 방안 마련 연구 국토연구원 2023">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                            <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">분야: 균형발전 입지</span>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-user-tie"></i> 국토연구원(KRIHS)</span>
+                                <span class="text-xs text-slate-400">|</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-calendar"></i> 2023년</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100">① 자료명: 지방이전 공공기관 사후관리 방안 마련 연구</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="space-y-2">
+                                <p><strong>⑤ 핵심내용 (5줄 요약):</strong></p>
+                                <ul class="list-disc pl-4 space-y-1 text-xs">
+                                    <li>비수도권 16개 지자체 대상 2차 공공기관 이전 희망 기관 수요 전수조사 분석</li>
+                                    <li>각 지역 혁신도시 부지 가용성 및 정주 인프라 수준 현장 평가 수행</li>
+                                    <li>'5극 3특' 초광역 메가시티 전략과 연계된 기능 밀착형 기관 매칭 전략 도출</li>
+                                    <li>지자체 간 소모적 유치 경쟁을 통제하기 위한 국토교통부 표준 평가지표 제안</li>
+                                    <li>지역 대학 및 연구단지와의 학연 협력 가능성을 핵심 가점 요소로 설정</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2 text-xs">
+                                <p class="text-sm text-slate-300"><strong>⑥ 핵심 통계:</strong> 지자체별 이전 희망 1순위 중복도 62.5%, 주력산업 연계 적합도 45.3%</p>
+                                <p><strong>⑦ 활용 표:</strong> [표 1-1] 시도별 공공기관 이전 수요 조사 제출 현황 및 중복도 분석</p>
+                                <p><strong>⑧ 활용 그림:</strong> [그림 1-2] 초광역 메가시티 5극3특 발전축과 공공기관 매칭 프로세스</p>
+                                <p><strong>⑨ 보고서 활용 위치:</strong> 본문 제1장 제2절 지자체 유치 전략 및 매칭 분석</p>
+                            </div>
+                        </div>
+
+                        <!-- Blockquote & Link -->
+                        <div class="bg-slate-900/40 p-4 rounded-lg relative">
+                            <span class="text-xs text-slate-400 block mb-1">⑩ 인용 가능 문장:</span>
+                            <blockquote id="cite-krihs" class="text-xs text-slate-300 italic leading-relaxed pr-16">
+                                "제2차 공공기관 이전은 지자체 간 소모적 경쟁을 방지하기 위해 각 지역의 5극3특 초광역 발전축 및 주력 특화 산업과의 기능적 연계성(Function-centered matching)을 최우선 기준으로 삼아야 한다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('cite-krihs', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-[10px] border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 pt-2 border-t border-slate-800/50">
+                            <span class="text-slate-400">④ 원문 링크: <a href="https://www.krihs.re.kr" target="_blank" class="text-indigo-400 hover:underline">www.krihs.re.kr <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></span>
+                            <div class="flex items-center space-x-2">
+                                <button id="pdf-btn-1" onclick="togglePdfViewer('pdf-viewer-1', './지방이전 공공기관 사후관리 방안 마련 연구.pdf', this)" class="bg-indigo-950/50 text-indigo-300 hover:bg-indigo-900/50 px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                    <span>인라인 PDF 뷰어</span>
+                                </button>
+                                <a href="./지방이전 공공기관 사후관리 방안 마련 연구.pdf" download class="bg-indigo-950/50 text-indigo-300 hover:text-white px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>다운로드</span>
+                                </a>
+                                <a href="./지방이전 공공기관 사후관리 방안 마련 연구.pdf" target="_blank" class="bg-slate-800 text-slate-300 hover:text-white px-2.5 py-1 rounded border border-slate-700 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-external-link"></i>
+                                    <span>새 창에서 열기</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Inline PDF Viewer Container -->
+                        <div id="pdf-viewer-1" class="hidden mt-4 border border-slate-800 rounded-lg overflow-hidden bg-slate-950/30">
+                            <div class="bg-slate-850 px-4 py-2 flex justify-between items-center text-xs border-b border-slate-800">
+                                <span class="text-slate-300 font-medium"><i class="fa-solid fa-eye mr-1"></i> 로컬 PDF 미리보기 (보안 제한 없이 즉시 렌더링됩니다)</span>
+                                <button onclick="closePdfViewer('pdf-viewer-1', 'pdf-btn-1')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
+                            </div>
+                            <iframe src="" class="w-full h-[500px]" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Reference 2 -->
+                    <div class="ref-card bg-slate-800/30 border border-slate-800 hover:border-indigo-500/30 p-6 rounded-xl space-y-4 transition" data-search="제1차 공공기관 지방이전 사업 성과와 시사점 국회예산정책처 2026">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                            <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">분야: 실증 성과 평가</span>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-user-tie"></i> 국회예산정책처(NABO)</span>
+                                <span class="text-xs text-slate-400">|</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-calendar"></i> 2026년</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100">① 자료명: 제1차 공공기관 지방이전 사업 성과와 시사점</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="space-y-2">
+                                <p><strong>⑤ 핵심내용 (5줄 요약):</strong></p>
+                                <ul class="list-disc pl-4 space-y-1 text-xs">
+                                    <li>1차로 이전한 107개 공공기관 임직원의 실질적 지역 정주성 심층 분석</li>
+                                    <li>수도권 인구 분산 효과 및 지역 지방세 수입 증가 등 경제적 성과 계량화</li>
+                                    <li>임직원의 주말 수도권 역이동율이 50%를 초과하는 정주성 한계점 입증</li>
+                                    <li>공공기관 주변 산학연 협력지구(클러스터)의 저조한 민간 대기업 입주율 규명</li>
+                                    <li>혁신도시 내 교육, 문화, 보건 의료 등 고도 인프라 정비의 필요성 권고</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2 text-xs">
+                                <p class="text-sm text-slate-300"><strong>⑥ 핵심 통계:</strong> 이전 기관 종사자의 주말 가족 동반 정주율 48.2%, 셔틀버스 이용자 비율 32.4%</p>
+                                <p><strong>⑦ 활용 표:</strong> [표 2-3] 1차 이전 기관별 종사자 정주 및 가족 동반 이주 현황</p>
+                                <p><strong>⑧ 활용 그림:</strong> [그림 2-1] 이전 지역별 수도권 출퇴근 및 인구 이동 패턴도</p>
+                                <p><strong>⑨ 보고서 활용 위치:</strong> 본문 제2장 제1절 1차 이전의 성과와 한계</p>
+                            </div>
+                        </div>
+
+                        <!-- Blockquote & Link -->
+                        <div class="bg-slate-900/40 p-4 rounded-lg relative">
+                            <span class="text-xs text-slate-400 block mb-1">⑩ 인용 가능 문장:</span>
+                            <blockquote id="cite-nabo" class="text-xs text-slate-300 italic leading-relaxed pr-16">
+                                "1차 이전 기관의 종사자 정주율은 48.2%에 불과하며, 지역 산업과의 유기적 연결이 결여된 단순 물리적 이전은 정주 인프라 확산 및 지역 혁신을 저해하는 요인이다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('cite-nabo', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-[10px] border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 pt-2 border-t border-slate-800/50">
+                            <span class="text-slate-400">④ 원문 링크: <a href="https://www.nabo.go.kr" target="_blank" class="text-indigo-400 hover:underline">www.nabo.go.kr <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></span>
+                            <div class="flex items-center space-x-2">
+                                <button id="pdf-btn-2" onclick="togglePdfViewer('pdf-viewer-2', './제1차 공공기관 지방이전 사업 성과와 시사점.pdf', this)" class="bg-indigo-950/50 text-indigo-300 hover:bg-indigo-900/50 px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                    <span>인라인 PDF 뷰어</span>
+                                </button>
+                                <a href="./제1차 공공기관 지방이전 사업 성과와 시사점.pdf" download class="bg-indigo-950/50 text-indigo-300 hover:text-white px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>다운로드</span>
+                                </a>
+                                <a href="./제1차 공공기관 지방이전 사업 성과와 시사점.pdf" target="_blank" class="bg-slate-800 text-slate-300 hover:text-white px-2.5 py-1 rounded border border-slate-700 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-external-link"></i>
+                                    <span>새 창에서 열기</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Inline PDF Viewer Container -->
+                        <div id="pdf-viewer-2" class="hidden mt-4 border border-slate-800 rounded-lg overflow-hidden bg-slate-950/30">
+                            <div class="bg-slate-850 px-4 py-2 flex justify-between items-center text-xs border-b border-slate-800">
+                                <span class="text-slate-300 font-medium"><i class="fa-solid fa-eye mr-1"></i> 로컬 PDF 미리보기 (보안 제한 없이 즉시 렌더링됩니다)</span>
+                                <button onclick="closePdfViewer('pdf-viewer-2', 'pdf-btn-2')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
+                            </div>
+                            <iframe src="" class="w-full h-[500px]" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Reference 3 -->
+                    <div class="ref-card bg-slate-800/30 border border-slate-800 hover:border-indigo-500/30 p-6 rounded-xl space-y-4 transition" data-search="제1차 지방시대 종합계획(2023-2027) 지방시대위원회 2023">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                            <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">분야: 균형발전 최상위 계획</span>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-user-tie"></i> 지방시대위원회</span>
+                                <span class="text-xs text-slate-400">|</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-calendar"></i> 2023년</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100">① 자료명: 제1차 지방시대 종합계획(2023-2027)</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="space-y-2">
+                                <p><strong>⑤ 핵심내용 (5줄 요약):</strong></p>
+                                <ul class="list-disc pl-4 space-y-1 text-xs">
+                                    <li>지방시대 종합계획의 연계 앵커 육성 방침 구체화</li>
+                                    <li>4대 특구(기회발전, 교육발전, 도심융합, 문화특구) 연계 기능 명시</li>
+                                    <li>지자체별 고유 특화 산업에 기반한 공공기관의 기능 연계 이전 지침 시달</li>
+                                    <li>초광역 메가시티 육성축인 '5극 3특' 발전축 중심의 정합성 가이드라인</li>
+                                    <li>이전 기관에 대한 세제 혜택 및 지방세 개정 조례 표준 설계안</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2 text-xs">
+                                <p class="text-sm text-slate-300"><strong>⑥ 핵심 통계:</strong> 초광역 협력 사업 예산 비율 35.0% 증가, 2차 이전 대상 공공기관 약 360여 개 검토</p>
+                                <p><strong>⑦ 활용 표:</strong> [표 1-3] 5극 3특 광역권별 특화 클러스터 및 연계 공공기관군</p>
+                                <p><strong>⑧ 활용 그림:</strong> [그림 1-4] 지방시대 종합계획 4대 특구 및 공공기관 융합 모델</p>
+                                <p><strong>⑨ 보고서 활용 위치:</strong> 본문 제1장 제1절 정부 정책 방향 및 균형발전 철학</p>
+                            </div>
+                        </div>
+
+                        <!-- Blockquote & Link -->
+                        <div class="bg-slate-900/40 p-4 rounded-lg relative">
+                            <span class="text-xs text-slate-400 block mb-1">⑩ 인용 가능 문장:</span>
+                            <blockquote id="cite-local" class="text-xs text-slate-300 italic leading-relaxed pr-16">
+                                "2차 공공기관 이전은 지방 분권과 국가 균형발전의 핵심 축으로서, 초광역권 메가시티의 독자적 산업 생태계 구축을 유도하는 기능적 앵커(Functional Anchor) 역할을 수행해야 한다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('cite-local', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-[10px] border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 pt-2 border-t border-slate-800/50">
+                            <span class="text-slate-400">④ 원문 링크: <a href="https://www.local.go.kr" target="_blank" class="text-indigo-400 hover:underline">www.local.go.kr <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></span>
+                            <div class="flex items-center space-x-2">
+                                <button id="pdf-btn-3" onclick="togglePdfViewer('pdf-viewer-3', './제1차 지방시대 종합계획(2023-2027).pdf', this)" class="bg-indigo-950/50 text-indigo-300 hover:bg-indigo-900/50 px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                    <span>인라인 PDF 뷰어</span>
+                                </button>
+                                <a href="./제1차 지방시대 종합계획(2023-2027).pdf" download class="bg-indigo-950/50 text-indigo-300 hover:text-white px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>다운로드</span>
+                                </a>
+                                <a href="./제1차 지방시대 종합계획(2023-2027).pdf" target="_blank" class="bg-slate-800 text-slate-300 hover:text-white px-2.5 py-1 rounded border border-slate-700 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-external-link"></i>
+                                    <span>새 창에서 열기</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Inline PDF Viewer Container -->
+                        <div id="pdf-viewer-3" class="hidden mt-4 border border-slate-800 rounded-lg overflow-hidden bg-slate-950/30">
+                            <div class="bg-slate-850 px-4 py-2 flex justify-between items-center text-xs border-b border-slate-800">
+                                <span class="text-slate-300 font-medium"><i class="fa-solid fa-eye mr-1"></i> 로컬 PDF 미리보기 (보안 제한 없이 즉시 렌더링됩니다)</span>
+                                <button onclick="closePdfViewer('pdf-viewer-3', 'pdf-btn-3')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
+                            </div>
+                            <iframe src="" class="w-full h-[500px]" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Reference 4 -->
+                    <div class="ref-card bg-slate-800/30 border border-slate-800 hover:border-indigo-500/30 p-6 rounded-xl space-y-4 transition" data-search="공공기관 지방이전의 파급효과와 거점도시 정책 방향 산업연구원 2025">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                            <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">분야: 산업생태계 앵커링</span>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-user-tie"></i> 산업연구원(KIET)</span>
+                                <span class="text-xs text-slate-400">|</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-calendar"></i> 2025년</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100">① 자료명: 공공기관 지방이전의 파급효과와 거점도시 정책 방향</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="space-y-2">
+                                <p><strong>⑤ 핵심내용 (5줄 요약):</strong></p>
+                                <ul class="list-disc pl-4 space-y-1 text-xs">
+                                    <li>경제자유구역, 규제자유특구 등 기존 경제 특구의 기업 입주율 정체 현상 규명</li>
+                                    <li>대규모 앵커 공공기관의 선제 배치에 따른 기업 유인 파급 효과 분석</li>
+                                    <li>250명 이상 규모 공공기관의 이전 효과와 민간 투자 규모와의 상관관계 실증</li>
+                                    <li>입지 위주의 비워진 단지 채우기식 이전 탈피 및 '혁신 존' 연계 지정 권고</li>
+                                    <li>지방정부로의 정책 입안 및 입지 규제 이양의 실효성 평가</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2 text-xs">
+                                <p class="text-sm text-slate-300"><strong>⑥ 핵심 통계:</strong> 250명 이상 규모 공공기관 이전 시 연간 1.2조 원 규모의 민간 기업 유치 간접 유발 효과 발생</p>
+                                <p><strong>⑦ 활용 표:</strong> [표 3-2] 주요 경제특구 입주율 및 공공기관 매칭 효과</p>
+                                <p><strong>⑧ 활용 그림:</strong> [그림 3-3] 기업 주도 혁신 존(Zone)과 공공기관 앵커 결합 모델</p>
+                                <p><strong>⑨ 보고서 활용 위치:</strong> 본문 제3장 제2절 공공기관 이전을 통한 지역 특화 산업 클러스터 촉진</p>
+                            </div>
+                        </div>
+
+                        <!-- Blockquote & Link -->
+                        <div class="bg-slate-900/40 p-4 rounded-lg relative">
+                            <span class="text-xs text-slate-400 block mb-1">⑩ 인용 가능 문장:</span>
+                            <blockquote id="cite-kiet-ref" class="text-xs text-slate-300 italic leading-relaxed pr-16">
+                                "공공기관 이전은 단순히 빈 부지를 채우는 물리적 행위가 아니며, 선제적 기업 유치 지역(혁신 존)에 맞춤형 공공기관을 연계 지정하여 시너지를 극대화해야 한다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('cite-kiet-ref', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-[10px] border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 pt-2 border-t border-slate-800/50">
+                            <span class="text-slate-400">④ 원문 링크: <a href="https://www.kiet.re.kr" target="_blank" class="text-indigo-400 hover:underline">www.kiet.re.kr <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></span>
+                            <div class="flex items-center space-x-2">
+                                <button id="pdf-btn-4" onclick="togglePdfViewer('pdf-viewer-4', './공공기관 지방이전의 파급효과와 거점도시 정책 방향.pdf', this)" class="bg-indigo-950/50 text-indigo-300 hover:bg-indigo-900/50 px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                    <span>인라인 PDF 뷰어</span>
+                                </button>
+                                <a href="./공공기관 지방이전의 파급효과와 거점도시 정책 방향.pdf" download class="bg-indigo-950/50 text-indigo-300 hover:text-white px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>다운로드</span>
+                                </a>
+                                <a href="./공공기관 지방이전의 파급효과와 거점도시 정책 방향.pdf" target="_blank" class="bg-slate-800 text-slate-300 hover:text-white px-2.5 py-1 rounded border border-slate-700 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-external-link"></i>
+                                    <span>새 창에서 열기</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Inline PDF Viewer Container -->
+                        <div id="pdf-viewer-4" class="hidden mt-4 border border-slate-800 rounded-lg overflow-hidden bg-slate-950/30">
+                            <div class="bg-slate-850 px-4 py-2 flex justify-between items-center text-xs border-b border-slate-800">
+                                <span class="text-slate-300 font-medium"><i class="fa-solid fa-eye mr-1"></i> 로컬 PDF 미리보기 (보안 제한 없이 즉시 렌더링됩니다)</span>
+                                <button onclick="closePdfViewer('pdf-viewer-4', 'pdf-btn-4')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
+                            </div>
+                            <iframe src="" class="w-full h-[500px]" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Reference 5 -->
+                    <div class="ref-card bg-slate-800/30 border border-slate-800 hover:border-indigo-500/30 p-6 rounded-xl space-y-4 transition" data-search="대전시 공공기관 유치 논리 개발 및 대응 방안 연구 대전연구원 2020">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                            <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">분야: 대전 지역 분석</span>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-user-tie"></i> 대전연구원(DJI)</span>
+                                <span class="text-xs text-slate-400">|</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-calendar"></i> 2020년</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100">① 자료명: 대전시 공공기관 유치 논리 개발 및 대응 방안 연구</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="space-y-2">
+                                <p><strong>⑤ 핵심내용 (5줄 요약):</strong></p>
+                                <ul class="list-disc pl-4 space-y-1 text-xs">
+                                    <li>대덕특구 출연연의 풍부한 R&D 특허 성과와 비즈니스 연계성 부족 실태 폭로</li>
+                                    <li>대전 미래 5대 전략산업(ABCD-QR) 육성을 위해 대기업 유치 부재 극복 모델 설계</li>
+                                    <li>개인 소득(전국 4위) 대비 낙후된 대전 GRDP 순위(전국 14위) 유출 메커니즘 분석</li>
+                                    <li>우주항공, 바이오, 국방 분야 혁신 금융(모펀드 등) 전담 공공기관 유치 논리 도출</li>
+                                    <li>원천 연구성과의 현지 실증(Testbed)을 통한 청년 창업 인재 유인 구상</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2 text-xs">
+                                <p class="text-sm text-slate-300"><strong>⑥ 핵심 통계:</strong> 대전 서비스업 비중 70.4%, 대전 개인소득 전국 4위, GRDP 순위 17개 시도 중 14위 (세종 출범 이후 누적)</p>
+                                <p><strong>⑦ 활용 표:</strong> [표 4-1] 대전광역시 산업별 GRDP 및 소득 유출 현황</p>
+                                <p><strong>⑧ 활용 그림:</strong> [그림 4-2] 대덕특구 R&D 인프라와 ABCD-QR 전략산업 연계망</p>
+                                <p><strong>⑨ 보고서 활용 위치:</strong> 본문 제3장 대전 연구특구 산업 환경 및 한계 극복 방안</p>
+                            </div>
+                        </div>
+
+                        <!-- Blockquote & Link -->
+                        <div class="bg-slate-900/40 p-4 rounded-lg relative">
+                            <span class="text-xs text-slate-400 block mb-1">⑩ 인용 가능 문장:</span>
+                            <blockquote id="cite-dji-ref" class="text-xs text-slate-300 italic leading-relaxed pr-16">
+                                "대전은 높은 개인소득(전국 4위)에도 불구하고 GRDP가 14위에 머무는 소득 유출 구조를 보이고 있어, 대덕특구의 원천 기술을 상용화 및 로컬 비즈니스화할 수 있는 창업/기술사업화 공공기관 유치가 절대적으로 필요하다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('cite-dji-ref', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-[10px] border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 pt-2 border-t border-slate-800/50">
+                            <span class="text-slate-400">④ 원문 링크: <a href="https://www.djdi.re.kr" target="_blank" class="text-indigo-400 hover:underline">www.djdi.re.kr <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></span>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-amber-500 text-[10px] bg-amber-950/30 px-2 py-1 rounded border border-amber-900/30"><i class="fa-solid fa-triangle-exclamation"></i> 로컬 PDF 미보유</span>
+                                <a href="https://www.djdi.re.kr" target="_blank" class="bg-slate-800 text-slate-300 hover:text-white px-2.5 py-1 rounded border border-slate-700 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-external-link"></i>
+                                    <span>공식 웹사이트 바로가기</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Inline PDF Viewer Container -->
+                        <div id="pdf-viewer-5" class="hidden mt-4 border border-slate-800 rounded-lg overflow-hidden bg-slate-950/30">
+                            <div class="bg-slate-850 px-4 py-2 flex justify-between items-center text-xs border-b border-slate-800">
+                                <span class="text-slate-300 font-medium"><i class="fa-solid fa-eye mr-1"></i> 공식 웹사이트 (보안 정책에 따라 차단될 수 있습니다)</span>
+                                <button onclick="closePdfViewer('pdf-viewer-5', 'pdf-btn-5')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
+                            </div>
+                            <iframe src="" class="w-full h-[500px]" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Reference 6 -->
+                    <div class="ref-card bg-slate-800/30 border border-slate-800 hover:border-indigo-500/30 p-6 rounded-xl space-y-4 transition" data-search="연구개발특구 통계연보 연구개발특구진흥재단 2025">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                            <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">분야: 기술사업화 실적</span>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-user-tie"></i> 연구개발특구진흥재단</span>
+                                <span class="text-xs text-slate-400">|</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-calendar"></i> 2025년</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100">① 자료명: 연구개발특구 통계연보</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="space-y-2">
+                                <p><strong>⑤ 핵심내용 (5줄 요약):</strong></p>
+                                <ul class="list-disc pl-4 space-y-1 text-xs">
+                                    <li>대덕특구 공공기술기반 연구소기업 설립 추세 및 고용 유발 분석</li>
+                                    <li>기술 이전 효율성과 국내외 특허 분쟁 지원 메커니즘 현황 평가</li>
+                                    <li>ETRI 등 선도 출연연 중심 기술사업화 전담 인프라 역량 심층 비교</li>
+                                    <li>초기 데스밸리(Death Valley) 극복을 위한 특구 전담 지식재산(IP) 금융 한계 도출</li>
+                                    <li>딥테크 스케일업을 지원할 테스트베드 앵커 및 보증 기관의 도입 시급성 권고</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2 text-xs">
+                                <p class="text-sm text-slate-300"><strong>⑥ 핵심 통계:</strong> 대덕특구 누적 연구소기업 1,600개 돌파, 기술이전 건수 연 5,000건, 대덕특구 R&D 기술이전 효율성 34.2%</p>
+                                <p><strong>⑦ 활용 표:</strong> [표 4-3] 연구개발특구별 연구소기업 설립 및 성장 추이</p>
+                                <p><strong>⑧ 활용 그림:</strong> [그림 4-4] 딥테크 기술사업화 주기 및 공공 서비스 지원 구조</p>
+                                <p><strong>⑨ 보고서 활용 위치:</strong> 본문 제4장 기술사업화 활성화 및 혁신 금융 지원체계 구축</p>
+                            </div>
+                        </div>
+
+                        <!-- Blockquote & Link -->
+                        <div class="bg-slate-900/40 p-4 rounded-lg relative">
+                            <span class="text-xs text-slate-400 block mb-1">⑩ 인용 가능 문장:</span>
+                            <blockquote id="cite-innopolis" class="text-xs text-slate-300 italic leading-relaxed pr-16">
+                                "대덕특구의 연구소기업은 누적 1,600개를 넘었으나 이들의 지속적인 스케일업과 기술 권리화를 지원할 전담 펀드 및 딥테크 실증 공공기관 매칭이 동반되어야 기술사업화의 성공률이 극대화된다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('cite-innopolis', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-[10px] border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 pt-2 border-t border-slate-800/50">
+                            <span class="text-slate-400">④ 원문 링크: <a href="https://www.innopolis.or.kr" target="_blank" class="text-indigo-400 hover:underline">www.innopolis.or.kr <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></span>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-amber-500 text-[10px] bg-amber-950/30 px-2 py-1 rounded border border-amber-900/30"><i class="fa-solid fa-triangle-exclamation"></i> 로컬 PDF 미보유</span>
+                                <a href="https://www.innopolis.or.kr" target="_blank" class="bg-slate-800 text-slate-300 hover:text-white px-2.5 py-1 rounded border border-slate-700 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-external-link"></i>
+                                    <span>공식 웹사이트 바로가기</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Inline PDF Viewer Container -->
+                        <div id="pdf-viewer-6" class="hidden mt-4 border border-slate-800 rounded-lg overflow-hidden bg-slate-950/30">
+                            <div class="bg-slate-850 px-4 py-2 flex justify-between items-center text-xs border-b border-slate-800">
+                                <span class="text-slate-300 font-medium"><i class="fa-solid fa-eye mr-1"></i> 공식 웹사이트 (보안 정책에 따라 차단될 수 있습니다)</span>
+                                <button onclick="closePdfViewer('pdf-viewer-6', 'pdf-btn-6')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
+                            </div>
+                            <iframe src="" class="w-full h-[500px]" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Reference 7 -->
+                    <div class="ref-card bg-slate-800/30 border border-slate-800 hover:border-indigo-500/30 p-6 rounded-xl space-y-4 transition" data-search="제6차 지방과학기술진흥종합계획(2023~2027) 과학기술정보통신부 2023">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                            <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">분야: 미래 전략기술</span>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-user-tie"></i> 과학기술정보통신부</span>
+                                <span class="text-xs text-slate-400">|</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-calendar"></i> 2023년</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100">① 자료명: 제6차 지방과학기술진흥종합계획(2023~2027)</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="space-y-2">
+                                <p><strong>⑤ 핵심내용 (5줄 요약):</strong></p>
+                                <ul class="list-disc pl-4 space-y-1 text-xs">
+                                    <li>대덕특구를 글로벌 기술 실증 테스트베드로 조성하는 공간 육성 전략</li>
+                                    <li>양자 정보통신 및 우주항공 핵심부품의 자립화 R&D 로드맵 추진현황 수집</li>
+                                    <li>인공지능(AI)과 융합한 딥테크 신개념 클러스터 지정 예산 조율</li>
+                                    <li>국방부 등 정부 수요처와의 공공 구매 조달 연계 인프라 기획</li>
+                                    <li>양자 및 우주 핵심 장비의 대전지역 집중 인프라 활성화 전략 가동</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2 text-xs">
+                                <p class="text-sm text-slate-300"><strong>⑥ 핵심 통계:</strong> 양자 R&D 투자 예산 연간 1,800억 원, 우주항공 핵심부품 국산화율 75% 달성 목표</p>
+                                <p><strong>⑦ 활용 표:</strong> [표 5-1] 국가 전략기술별 R&D 투자 배분 및 대전지역 매칭 사업</p>
+                                <p><strong>⑧ 활용 그림:</strong> [그림 5-2] 글로벌 딥테크 실증 단지 공간 구성 및 연계 출연연 맵</p>
+                                <p><strong>⑨ 보고서 활용 위치:</strong> 본문 제4장 제2절 미래 성장동력(양자, 우주항공) R&D 인프라 분석</p>
+                            </div>
+                        </div>
+
+                        <!-- Blockquote & Link -->
+                        <div class="bg-slate-900/40 p-4 rounded-lg relative">
+                            <span class="text-xs text-slate-400 block mb-1">⑩ 인용 가능 문장:</span>
+                            <blockquote id="cite-msit" class="text-xs text-slate-300 italic leading-relaxed pr-16">
+                                "글로벌 기술 패권 경쟁에 대응하기 위해 대전의 출연연 역량과 우주항공·양자 등 핵심 딥테크 연구 자원을 결합하고, 이를 뒷받침할 글로벌 실증지원 전담 공공기관이 한 축으로 작용해야 한다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('cite-msit', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-[10px] border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 pt-2 border-t border-slate-800/50">
+                            <span class="text-slate-400">④ 원문 링크: <a href="https://www.msit.go.kr" target="_blank" class="text-indigo-400 hover:underline">www.msit.go.kr <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></span>
+                            <div class="flex items-center space-x-2">
+                                <button id="pdf-btn-7" onclick="togglePdfViewer('pdf-viewer-7', './제6차 지방과학기술진흥종합계획(2023-2027).pdf', this)" class="bg-indigo-950/50 text-indigo-300 hover:bg-indigo-900/50 px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                    <span>인라인 PDF 뷰어</span>
+                                </button>
+                                <a href="./제6차 지방과학기술진흥종합계획(2023-2027).pdf" download class="bg-indigo-950/50 text-indigo-300 hover:text-white px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>다운로드</span>
+                                </a>
+                                <a href="./제6차 지방과학기술진흥종합계획(2023-2027).pdf" target="_blank" class="bg-slate-800 text-slate-300 hover:text-white px-2.5 py-1 rounded border border-slate-700 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-external-link"></i>
+                                    <span>새 창에서 열기</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Inline PDF Viewer Container -->
+                        <div id="pdf-viewer-7" class="hidden mt-4 border border-slate-800 rounded-lg overflow-hidden bg-slate-950/30">
+                            <div class="bg-slate-850 px-4 py-2 flex justify-between items-center text-xs border-b border-slate-800">
+                                <span class="text-slate-300 font-medium"><i class="fa-solid fa-eye mr-1"></i> 로컬 PDF 미리보기 (보안 제한 없이 즉시 렌더링됩니다)</span>
+                                <button onclick="closePdfViewer('pdf-viewer-7', 'pdf-btn-7')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
+                            </div>
+                            <iframe src="" class="w-full h-[500px]" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Reference 8 -->
+                    <div class="ref-card bg-slate-800/30 border border-slate-800 hover:border-indigo-500/30 p-6 rounded-xl space-y-4 transition" data-search="2023년 지역소득(잠정) 결과 보고서 통계청 2024">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                            <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">분야: 공식 경제통계</span>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-user-tie"></i> 통계청(KOSTAT)</span>
+                                <span class="text-xs text-slate-400">|</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-calendar"></i> 2024년</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100">① 자료명: 2023년 지역소득(잠정) 결과 보고서</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="space-y-2">
+                                <p><strong>⑤ 핵심내용 (5줄 요약):</strong></p>
+                                <ul class="list-disc pl-4 space-y-1 text-xs">
+                                    <li>전국 17개 시도별 지역내총생산(GRDP) 및 생산, 소득 격차 추이</li>
+                                    <li>대덕특구 소재 대전의 연구개발업 부가가치 창출 전국 1위 실적 확인</li>
+                                    <li>대기업 및 생산 공정 기반 부재로 인한 제조업 역외 유출 모순 증명</li>
+                                    <li>소비 성향 대비 고소득 인력(연구직 등)의 정주 유출 유인 파악</li>
+                                    <li>지방세 수입 향상을 위한 과학기술 연계 기업 비즈니스의 중요성 제시</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2 text-xs">
+                                <p class="text-sm text-slate-300"><strong>⑥ 핵심 통계:</strong> 대전 지역 연구개발업 부가가치 비중 전국 1위(8.4%), 대전 제조업 생산 증가율 -1.2%</p>
+                                <p><strong>⑦ 활용 표:</strong> [표 2-1] 시도별 경제성장률 및 부가가치 항목별 구성비</p>
+                                <p><strong>⑧ 활용 그림:</strong> [그림 2-2] 전국 제조업-서비스업 성장 격차 및 부가가치 맵</p>
+                                <p><strong>⑨ 보고서 활용 위치:</strong> 본문 제2장 제3절 대전 경제환경 및 산업구조 진단</p>
+                            </div>
+                        </div>
+
+                        <!-- Blockquote & Link -->
+                        <div class="bg-slate-900/40 p-4 rounded-lg relative">
+                            <span class="text-xs text-slate-400 block mb-1">⑩ 인용 가능 문장:</span>
+                            <blockquote id="cite-kostat" class="text-xs text-slate-300 italic leading-relaxed pr-16">
+                                "대전은 연구개발업 부가가치 비중이 8.4%로 전국 최고 수준이지만 제조업 생산 증가율이 음의 성장을 보이는 등 R&D와 제조 생산 간의 단절 현상이 통계적으로 확인된다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('cite-kostat', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-[10px] border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 pt-2 border-t border-slate-800/50">
+                            <span class="text-slate-400">④ 원문 링크: <a href="https://kostat.go.kr" target="_blank" class="text-indigo-400 hover:underline">kostat.go.kr <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></span>
+                            <div class="flex items-center space-x-2">
+                                <button id="pdf-btn-8" onclick="togglePdfViewer('pdf-viewer-8', './2023년 지역소득(잠정) 결과보고서.pdf', this)" class="bg-indigo-950/50 text-indigo-300 hover:bg-indigo-900/50 px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                    <span>인라인 PDF 뷰어</span>
+                                </button>
+                                <a href="./2023년 지역소득(잠정) 결과보고서.pdf" download class="bg-indigo-950/50 text-indigo-300 hover:text-white px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>다운로드</span>
+                                </a>
+                                <a href="./2023년 지역소득(잠정) 결과보고서.pdf" target="_blank" class="bg-slate-800 text-slate-300 hover:text-white px-2.5 py-1 rounded border border-slate-700 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-external-link"></i>
+                                    <span>새 창에서 열기</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Inline PDF Viewer Container -->
+                        <div id="pdf-viewer-8" class="hidden mt-4 border border-slate-800 rounded-lg overflow-hidden bg-slate-950/30">
+                            <div class="bg-slate-850 px-4 py-2 flex justify-between items-center text-xs border-b border-slate-800">
+                                <span class="text-slate-300 font-medium"><i class="fa-solid fa-eye mr-1"></i> 로컬 PDF 미리보기 (보안 제한 없이 즉시 렌더링됩니다)</span>
+                                <button onclick="closePdfViewer('pdf-viewer-8', 'pdf-btn-8')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
+                            </div>
+                            <iframe src="" class="w-full h-[500px]" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Reference 9 -->
+                    <div class="ref-card bg-slate-800/30 border border-slate-800 hover:border-indigo-500/30 p-6 rounded-xl space-y-4 transition" data-search="산학연협력기술지주회사 운영현황 조사보고서 한국산업기술진흥원 2024">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                            <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">분야: 산학 인재 정책</span>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-user-tie"></i> 한국산업기술진흥원(KIAT)</span>
+                                <span class="text-xs text-slate-400">|</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-calendar"></i> 2024년</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100">① 자료명: 산학연협력기술지주회사 운영현황 조사보고서</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="space-y-2">
+                                <p><strong>⑤ 핵심내용 (5줄 요약):</strong></p>
+                                <ul class="list-disc pl-4 space-y-1 text-xs">
+                                    <li>비수도권 중소·중견기업 산학 매칭을 통한 혁신기술 채택 성과 계량화</li>
+                                    <li>이전 공공기관의 의무 지역인재 채용률 실태 및 청년 이주 효과 분석</li>
+                                    <li>충남대 및 우송대 철도학과 등 대전지역 대학의 취업 밸류체인 진단</li>
+                                    <li>공공기관 채용 메리트가 청년 인재의 지역 고착화에 미치는 영향 증명</li>
+                                    <li>지역 혁신 기업과 연계한 채용 연계형 인턴쉽 공동 지원 가이드라인</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2 text-xs">
+                                <p class="text-sm text-slate-300"><strong>⑥ 핵심 통계:</strong> 대전지역 공공기관의 지역인재 채용률 30.5% 달성, 청년 인구 역외 유출 전년 대비 12% 감소</p>
+                                <p><strong>⑦ 활용 표:</strong> [표 6-1] 비수도권 시도별 이전 공공기관 지역인재 채용 현황</p>
+                                <p><strong>⑧ 활용 그림:</strong> [그림 6-2] 지역 대학-이전 공공기관-지역 특화 기업 인력 순환 사이클</p>
+                                <p><strong>⑨ 보고서 활용 위치:</strong> 본문 제5장 제2절 지역인재 양성 및 청년 정주 지원 방안</p>
+                            </div>
+                        </div>
+
+                        <!-- Blockquote & Link -->
+                        <div class="bg-slate-900/40 p-4 rounded-lg relative">
+                            <span class="text-xs text-slate-400 block mb-1">⑩ 인용 가능 문장:</span>
+                            <blockquote id="cite-kiat" class="text-xs text-slate-300 italic leading-relaxed pr-16">
+                                "이전 공공기관의 지역인재 채용(의무비율 30% 이상)은 대전 지역 대학생들의 안정적인 정주 여건을 보장할 뿐 아니라, 장기적으로 지역 내 고숙련 지식의 스필오버를 고착화하는 효과가 있다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('cite-kiat', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-[10px] border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 pt-2 border-t border-slate-800/50">
+                            <span class="text-slate-400">④ 원문 링크: <a href="https://www.kiat.or.kr" target="_blank" class="text-indigo-400 hover:underline">www.kiat.or.kr <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></span>
+                            <div class="flex items-center space-x-2">
+                                <button id="pdf-btn-9" onclick="togglePdfViewer('pdf-viewer-9', './산학연협력기술지주회사 운영현황 조사보고서.pdf', this)" class="bg-indigo-950/50 text-indigo-300 hover:bg-indigo-900/50 px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                    <span>인라인 PDF 뷰어</span>
+                                </button>
+                                <a href="./산학연협력기술지주회사 운영현황 조사보고서.pdf" download class="bg-indigo-950/50 text-indigo-300 hover:text-white px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>다운로드</span>
+                                </a>
+                                <a href="./산학연협력기술지주회사 운영현황 조사보고서.pdf" target="_blank" class="bg-slate-800 text-slate-300 hover:text-white px-2.5 py-1 rounded border border-slate-700 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-external-link"></i>
+                                    <span>새 창에서 열기</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Inline PDF Viewer Container -->
+                        <div id="pdf-viewer-9" class="hidden mt-4 border border-slate-800 rounded-lg overflow-hidden bg-slate-950/30">
+                            <div class="bg-slate-850 px-4 py-2 flex justify-between items-center text-xs border-b border-slate-800">
+                                <span class="text-slate-300 font-medium"><i class="fa-solid fa-eye mr-1"></i> 로컬 PDF 미리보기 (보안 제한 없이 즉시 렌더링됩니다)</span>
+                                <button onclick="closePdfViewer('pdf-viewer-9', 'pdf-btn-9')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
+                            </div>
+                            <iframe src="" class="w-full h-[500px]" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Reference 10 -->
+                    <div class="ref-card bg-slate-800/30 border border-slate-800 hover:border-indigo-500/30 p-6 rounded-xl space-y-4 transition" data-search="지역 과학기술혁신역량평가 보고서 한국과학기술기획평가원 2024">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                            <span class="bg-indigo-900/50 text-indigo-300 text-xs px-2.5 py-1 rounded font-bold uppercase">분야: 국가전략 R&D 타당성</span>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-user-tie"></i> 한국과학기술기획평가원(KISTEP)</span>
+                                <span class="text-xs text-slate-400">|</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-calendar"></i> 2024년</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100">① 자료명: 지역 과학기술혁신역량평가 보고서</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="space-y-2">
+                                <p><strong>⑤ 핵심내용 (5줄 요약):</strong></p>
+                                <ul class="list-disc pl-4 space-y-1 text-xs">
+                                    <li>국가 12대 미래 기술 자원의 지역 매칭 정합성 심사</li>
+                                    <li>대덕특구 내 정부출연연구기관과의 협업 채널 활성화 방안 수립</li>
+                                    <li>양자 암호화 및 고정밀 양자센서 등 핵심 딥테크의 타당성 사전 심사</li>
+                                    <li>우주항공 거점으로서 대전이 지닌 연구 인프라 집중도 규명</li>
+                                    <li>글로벌 공동 연구 기반 개척을 위한 전담 행정/지식재산 공공기관 유치 제안</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2 text-xs">
+                                <p class="text-sm text-slate-300"><strong>⑥ 핵심 통계:</strong> 12대 전략기술 대전지역 인프라 점유율 41.5%, 양자·우주항공 분야 국가 R&D 대전 집중도 56%</p>
+                                <p><strong>⑦ 활용 표:</strong> [표 5-3] 국가 전략기술 인프라 및 예산 지자체별 분포표</p>
+                                <p><strong>⑧ 활용 그림:</strong> [그림 5-4] 12대 전략기술 허브-스포크(Hub-and-Spoke) 구조도</p>
+                                <p><strong>⑨ 보고서 활용 위치:</strong> 제4장 제3절 연구기반 공공기관 이전의 파급효과 시뮬레이션</p>
+                            </div>
+                        </div>
+
+                        <!-- Blockquote & Link -->
+                        <div class="bg-slate-900/40 p-4 rounded-lg relative">
+                            <span class="text-xs text-slate-400 block mb-1">⑩ 인용 가능 문장:</span>
+                            <blockquote id="cite-kistep" class="text-xs text-slate-300 italic leading-relaxed pr-16">
+                                "대전은 12대 국가전략기술 관련 인프라 점유율이 41.5%에 이르고 국가 R&D 대전 집중도가 56%를 넘어서므로, 관련 전문 지원 공공기관의 이전은 정책적 정합성이 극도로 높다."
+                            </blockquote>
+                            <button onclick="copyToClipboard('cite-kistep', this)" class="absolute top-4 right-4 bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded text-[10px] border border-slate-700 hover:bg-slate-700 transition">
+                                <i class="fa-solid fa-copy mr-1"></i> 복사
+                            </button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 pt-2 border-t border-slate-800/50">
+                            <span class="text-slate-400">④ 원문 링크: <a href="https://www.kistep.re.kr" target="_blank" class="text-indigo-400 hover:underline">www.kistep.re.kr <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></span>
+                            <div class="flex items-center space-x-2">
+                                <button id="pdf-btn-10" onclick="togglePdfViewer('pdf-viewer-10', './지역 과학기술혁신역량평가 보고서.pdf', this)" class="bg-indigo-950/50 text-indigo-300 hover:bg-indigo-900/50 px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                    <span>인라인 PDF 뷰어</span>
+                                </button>
+                                <a href="./지역 과학기술혁신역량평가 보고서.pdf" download class="bg-indigo-950/50 text-indigo-300 hover:text-white px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>다운로드</span>
+                                </a>
+                                <a href="./지역 과학기술혁신역량평가 보고서.pdf" target="_blank" class="bg-slate-800 text-slate-300 hover:text-white px-2.5 py-1 rounded border border-slate-700 transition flex items-center space-x-1">
+                                    <i class="fa-solid fa-external-link"></i>
+                                    <span>새 창에서 열기</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Inline PDF Viewer Container -->
+                        <div id="pdf-viewer-10" class="hidden mt-4 border border-slate-800 rounded-lg overflow-hidden bg-slate-950/30">
+                            <div class="bg-slate-850 px-4 py-2 flex justify-between items-center text-xs border-b border-slate-800">
+                                <span class="text-slate-300 font-medium"><i class="fa-solid fa-eye mr-1"></i> 로컬 PDF 미리보기 (보안 제한 없이 즉시 렌더링됩니다)</span>
+                                <button onclick="closePdfViewer('pdf-viewer-10', 'pdf-btn-10')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
+                            </div>
+                            <iframe src="" class="w-full h-[500px]" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-slate-800 mt-12 py-6 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p>© 2026 국가인재원 정책기획보고서 작성 지원 자료수집팀. All Rights Reserved.</p>
+            <p>본 포털은 내부 정책 기획 참고용 웹서랍으로, 외부 무단 배포를 금합니다. 최신 공식 자료 및 통계는 매월 업데이트됩니다.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Tab switching logic
+        function switchTab(tabId, btnElement) {
+            // Hide all tab content
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show selected tab content
+            const targetContent = document.getElementById(tabId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+
+            // Remove active classes from all tab buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-md');
+                btn.classList.add('text-slate-400');
+            });
+
+            // Add active class to clicked button
+            btnElement.classList.add('bg-indigo-600', 'text-white', 'shadow-md');
+            btnElement.classList.remove('text-slate-400');
+            btnElement.classList.add('text-slate-300');
+        }
+
+        // Copy to clipboard logic
+        function copyToClipboard(elementId, btn) {
+            const citeText = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(citeText).then(() => {
+                // Visual feedback
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check text-green-400 mr-1"></i> 복사 완료';
+                btn.classList.add('border-green-500/50', 'text-green-400');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.classList.remove('border-green-500/50', 'text-green-400');
+                }, 2000);
+            }).catch(err => {
+                console.error('Copy failed: ', err);
+            });
+        }
+
+        // Live search and filter for Master Reference list
+        function filterTable() {
+            const input = document.getElementById('search-input');
+            const filter = input.value.toLowerCase();
+            const cards = document.querySelectorAll('.ref-card');
+
+            cards.forEach(card => {
+                const searchText = card.getAttribute('data-search').toLowerCase();
+                // Or search paragraph text inside
+                const cardContent = card.innerText.toLowerCase();
+                
+                if (searchText.indexOf(filter) > -1 || cardContent.indexOf(filter) > -1) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+        // Close PDF Viewer function
+        function closePdfViewer(viewerId, btnId) {
+            const viewer = document.getElementById(viewerId);
+            viewer.classList.add('hidden');
+            const btn = document.getElementById(btnId);
+            if (btn) {
+                // Reset to default styling string directly
+                btn.className = "bg-indigo-950/50 text-indigo-300 hover:bg-indigo-900/50 px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1";
+            }
+        }
+
+        // Go to specific reference tab & card with scroll & highlight
+        function goToReference(refId) {
+            // Get reference tab button and click it
+            const refTabBtn = document.getElementById('btn-tab-references');
+            if (refTabBtn) {
+                switchTab('tab-references', refTabBtn);
+            }
+            
+            // Scroll to the card and trigger a temporary highlight ring
+            setTimeout(() => {
+                const viewer = document.getElementById('pdf-viewer-' + refId);
+                if (viewer) {
+                    const card = viewer.closest('.ref-card');
+                    if (card) {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        // Add highlight classes
+                        card.classList.remove('border-slate-800');
+                        card.classList.add('ring-2', 'ring-indigo-500', 'border-indigo-500');
+                        
+                        setTimeout(() => {
+                            card.classList.remove('ring-2', 'ring-indigo-500', 'border-indigo-500');
+                            card.classList.add('border-slate-800');
+                        }, 2500);
+                    }
+                }
+            }, 150);
+        }
+
+        // Inline PDF Viewer toggle function
+        function togglePdfViewer(viewerId, pdfUrl, btnElement) {
+            const viewer = document.getElementById(viewerId);
+            const iframe = viewer.querySelector('iframe');
+            
+            if (viewer.classList.contains('hidden')) {
+                // Open and set src if empty
+                if (!iframe.src || iframe.src === 'about:blank' || iframe.src === window.location.href) {
+                    iframe.src = pdfUrl;
+                }
+                viewer.classList.remove('hidden');
+                // Set active styling string directly
+                btnElement.className = "bg-indigo-600 text-white hover:bg-indigo-500 px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1";
+            } else {
+                viewer.classList.add('hidden');
+                // Reset to default styling string directly
+                btnElement.className = "bg-indigo-950/50 text-indigo-300 hover:bg-indigo-900/50 px-2.5 py-1 rounded border border-indigo-900/50 transition flex items-center space-x-1";
+            }
+        }
+    </script>
+</body>
+</html>
